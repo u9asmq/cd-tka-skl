@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+  }
+  
+  body {
+    align-items: center;
+    background-color: #ffffff;
+    display: flex;
+  }
+  
+  .container {
+    color: #000;
+    margin: 10rem auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-weight: large;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+  }
+  
+  li {
+    display: inline-block;
+    font-size: 1em;
+    list-style: none;
+    padding: 1em;
+    text-transform: uppercase;
+  }
+  
+  li span {
+    display: block;
+    font-size: 3.5rem;
+  }
+
+  img {
+    margin-top: 1rem;
+    width: 100px;
+  }
+
+
+.expired-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: none;
+  color: white;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.expired-button:hover {
+  background-color: ##282828;
+}
+
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+    }
+/* Set all text to white */
+
+body, h1, h2, h3, h4, h5, h6, p, span, div, a {
+  color: white !important;
+}
+
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>E-PENGUMUMAN SMAN 1 LUBAI ULU</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: url('background.jpg');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: #1d08a6;
+      margin-bottom: 10px;
+    }
+
+    input, button {
+      padding: 12px;
+      margin: 10px 0;
+      width: 90%;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #1d08a6;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Logo SMAN1LU" class="logo" />
+    <h1>Pengumuman SPMB SMAN 1 LUBAI ULU<br>Tahun Ajaran 2025/2026</h1>
+    <p>Masukkan 10 Digit NISN untuk melihat hasil</p>
+    <input type="text" id="nisnInput" placeholder="Contoh: 0101010101" />
+    <button onclick="cekKelulusan()">Cek Kelulusan</button>
+    <div class="result" id="hasil"></div>
+    <footer>© SMA Negeri 1 Lubai Ulu 2025</footer>
+  </div>
+
+  <script>
+    const dataKelulusan = {
+"0103764841": { nama: "ABAEL DILANO SAPUTRA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href="https://drive.google.com/file/d/1yHcYBjMhh_0nB3ajkW1tdUrrl_NDx05G/view?usp=drivesdk" target="_blank">Download Pengumuman</a>' },
+"0109834782": { nama: "ABI SAPUTRA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1iRMwzv_qIFu03_byQ-YCcb-kGHXlPW2G/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0104114236": { nama: "AFWAN GHAZI FIRDAUS", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1MJgXKmuChW8-O9VKbiYPN-QXrAwHugNd/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"3106994991": { nama: "ANDIKO JIWANTARA PATRAJIH", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1bRJS010GMfgwaun_T1mH7Mq_MXUQhXun/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0096200716": { nama: "ANDINI SARI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1IG1BnYXqPw2bWrfO0ABz9oN1tluyoS2j/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0101246028": { nama: "ANISA PUTRI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1nIDvmCXM3A_MhGfZqP9ABOMsDo3obsrZ/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0103149434": { nama: "BARKH PRATAMA NASYAWAT", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1IjQHwCywu5d_kdqkGblUr7zgs63AVyYu/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0104494483": { nama: "CHELSIE OLIVIA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1BcRNFZVIfByPcRmU4nD33bjoir0VpBQy/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0108165773": { nama: "CIKA PUTRI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1NhrRgpLahiOGeO3BGWSUNPu-Zeo3LpPj/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0103731806": { nama: "DENI KURNIAWAN", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1r_Kz-rOtvu3QofwbwX9WQcgytt7sqn44/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0098555167": { nama: "DESTI RAHMASARI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1CIMqU3dsbxaP2PsG7MCP4_-yvmlUmpTk/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0109468578": { nama: "Dicha Chantika", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1M58g4JGoanDnHOFlp4DMnao5TxE-nk6C/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0109526985": { nama: "DIKA PITROSA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1bB_MUGkiWO64dtnONr_Rsl5Xss12AOO3/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0104927362": { nama: "ERIK SUGIARTO", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1Xr8R67_p0KSYfUXkAG6hT9S_CcYBrTGk/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0106371139": { nama: "ERLAN SARIF HIDAYATULLAH", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1ZaLKqRGnNKC4jTVfaikU4VCDKNcjecXI/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0102064433": { nama: "ERLANGGA PRATAMA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1gW7sDpvVmg1DgeENQVQ0_H8rPpwO7R9a/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0108167640": { nama: "FISTAKHUL ENGGEL TIYANO", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1H-wtzzsdX0d1BWfSCstsqlsuX4zRD6B_/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0092855440": { nama: "JEPRI RICAL", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1fVVtKnq7Dig3t1lr22sQKgab4dn4PGQL/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0095473659": { nama: "LUVIA ASRI WULANDHARI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1QgZDh1Pfnivt39RukKjGWCEF1ije8UP0/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0102963661": { nama: "MEKI EPRIYANSA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1d_eGZt1eJ_k8LJzH7O56NUnCYl_WlcH3/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0097557165": { nama: "NADIYA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1c88CmP8nT7OddYGNR1hta2oITiRYtM38/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0102960147": { nama: "NIKITA REGINA FRISISIA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1nUb9tq5T4xC49cdMdx71N4fvjyDx8HuJ/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0101686920": { nama: "NOVAL ADRIANO", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/19HVpW1wfaGpDSzmFfJL2LoJZMEPCkne7/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0108525303": { nama: "OLIF OKTA PHIA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1yYzuRNSUQNog6ACuQj7dopieFDl_HgH-/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0089485112": { nama: "RAHMA RAHMADANI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1mlz7A7wbBSkmumLUvwoF7n3hBwy5tEQJ/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0104984307": { nama: "RAHUL KAHNA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1FPw_FQg2yyWeOZ56fZFMSGsMyjvkGJ4d/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0073903355": { nama: "RAKA KUSUMA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1JsMsEN56Jn_4PP7ePY0W6BUeJG5zTy4g/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0101764437": { nama: "RAY DOMINICUS SITUMORANG", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1x0bwVxkhWOGoQBmifED1nXJU8gn9-E8p/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0082194736": { nama: "RAYHAN ALFARID", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1CA5g_DV8pp8C1p0gDAUKFtayJEsaENZl/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0105846632": { nama: "REZA PRATAMA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1I6aJpRu99-uRfqHDZ6fQn3KkyjGLKp9t/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0101420018": { nama: "RIKY ARIADI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1uheU2I0vZzFAmybSUoC92PyoOgvFp0hU/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0106747852": { nama: "SELVITA CAHYA PUTRI", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1nOL0N8PIK17AQUbDIGOngV3MoMKChecn/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0098482128": { nama: "SILVIA RIFA AZIZAH", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1l9Hdiw1CUQsqpUE2WUc0gGJpcavHGlni/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0092478514": { nama: "THOMAS GIDION", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1Ny_07_a4GggMgsg5_6XHrCLh_TOVesA5/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0104557084": { nama: "TRIAN SYAMUDRA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1Kv8jU9pg53N_64TucR4krjg8jZEZSH8W/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+"0071780486": { nama: "WILDA", status: "SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU", skl:'<a href=https://drive.google.com/file/d/1Do3j5l-sdnp97fJuSe2I2OraOB6M8Jxk/view?usp=drivesdk target="_blank">Download Pengumuman</a>' },
+    };
+
+    function cekKelulusan() {
+      const nisn = document.getElementById("nisnInput").value.trim();
+      const hasilDiv = document.getElementById("hasil");
+      const data = dataKelulusan[nisn];
+
+      if (data) {
+        hasilDiv.innerHTML = `
+          <p>Nama: <strong>${data.nama}</strong></p>
+          <p>Status Kelulusan: <strong style="color: ${data.status === 'SELAMAT ANDA DINYATAKAN DITERIMA PADA SPMB SMAN 1 LUBAI ULU' ? 'green' : 'red'}">${data.status}</strong></p>
+          <p>File Pengumuman: <strong>${data.skl}</strong></p>
+        `;
+      } else {
+        hasilDiv.innerHTML = "<p style='color: gray;'>Data tidak ditemukan. Periksa kembali NISN Anda.</p>";
+      }
+    }
+  </script>
+</body>
+</html>
